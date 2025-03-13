@@ -36,7 +36,6 @@ function makeReactive(data, onChange) {
         return value;
       },
       set(newValue) {
-        console.log(`Setting ${key} to ${newValue} (was ${value})`);
         value = newValue;
         onChange(key, newValue);
       },
@@ -64,14 +63,6 @@ function createInstance(options) {
   // Generate a unique ID for this instance
   const instanceId = getUniqueComponentId();
 
-  console.log(
-    "Creating instance with options:",
-    JSON.stringify(options, (key, value) => {
-      if (typeof value === "function") return "function";
-      return value;
-    })
-  );
-
   // Map to store text nodes bound to data keys for reactivity
   const keyToNodes = {};
 
@@ -80,16 +71,13 @@ function createInstance(options) {
 
   // Callback to update text nodes when data changes
   const onChange = (key, newValue) => {
-    console.log(`Data changed: ${key} = ${newValue}`);
-
+  
     // Update text nodes
     if (keyToNodes[key]) {
       keyToNodes[key].forEach((node) => {
         if (typeof node === "object" && node.textContent !== undefined) {
-          console.log(`Updating text node for ${key} to ${newValue}`);
           node.textContent = newValue;
         } else if (typeof node === "object" && typeof node.set === "function") {
-          console.log(`Updating attribute for ${key} to ${newValue}`);
           node.set(newValue);
         }
       });
@@ -100,13 +88,13 @@ function createInstance(options) {
       propBindings.get(key).forEach((binding) => {
         const { childInstance, propName } = binding;
         if (childInstance && childInstance.data && propName) {
-          console.log(`Updating child prop ${propName} to ${newValue}`);
+          
           childInstance.data[propName] = newValue;
 
           // Force re-render the child component
           const childElement = componentElements.get(childInstance.id);
           if (childElement && childElement.parentNode) {
-            console.log(`Re-rendering child component ${childInstance.id}`);
+            
             const newFragment = childInstance.render();
             childElement.parentNode.replaceChild(newFragment, childElement);
 
@@ -128,7 +116,7 @@ function createInstance(options) {
       children.forEach((childId) => {
         const childInstance = componentInstances.get(childId);
         if (childInstance) {
-          console.log(`Checking child component ${childId} for updates`);
+        
           // Re-render the child component
           const childElement = componentElements.get(childId);
           if (childElement && childElement.parentNode) {

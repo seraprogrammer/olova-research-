@@ -5,10 +5,6 @@ export default function olovaPlugin() {
 
     transform(code, id) {
       if (!id.endsWith(".olova")) return null;
-
-      console.log("Processing file:", id);
-      console.log("Original code:", code);
-
       try {
         // Parse the .olova file
         const scriptMatch = code.match(/<script>([\s\S]*?)<\/script>/);
