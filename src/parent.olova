@@ -1,0 +1,22 @@
+<script>
+  import Card from "./card.olova";
+
+  let message = "Hello from parent";
+
+  function updateMessage() {
+    message = "Updated message from parent!";
+    console.log("Message updated to:", message);
+  }
+</script>
+
+<div>
+  <h1>Parent Component</h1>
+  <card title="Static Title" :description="message"></card>
+  <button onclick="updateMessage()">Change Message</button>
+</div>
+
+<style>
+  h1 {
+    color: blue;
+  }
+</style>

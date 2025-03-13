@@ -1,0 +1,15 @@
+<script>
+  import DvCount from "./dvCount.olova";
+
+  let count = 0;
+
+  function increment() {
+    count = count + 1;
+  }
+</script>
+
+<div>
+  <DvCount :count="count"></DvCount>
+  <DvCount :count="count"></DvCount>
+  <button onclick="increment()">Increment</button>
+</div>

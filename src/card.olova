@@ -1,0 +1,18 @@
+<script>
+  props: ["title", "description"];
+</script>
+
+<div class="card">
+  <h2>{ title }</h2>
+  <p>{ description }</p>
+</div>
+
+<style>
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>

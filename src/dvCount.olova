@@ -1,0 +1,20 @@
+<script>
+  props: ["count"];
+</script>
+
+<h1>{ count }</h1>
+
+<style scoped>
+  h1 {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+    background-color: blue;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>

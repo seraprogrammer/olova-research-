@@ -1,0 +1,57 @@
+<script>
+  let count = 0;
+
+  function increment() {
+    count = count + 1;
+    console.log(count);
+  }
+
+  function decrement() {
+    count = count - 1;
+    console.log(count);
+  }
+</script>
+
+<div class="counter">
+  <button onclick="decrement">-</button>
+  <span>Count: { count }</span>
+  <button onclick="increment">+</button>
+</div>
+
+<style scoped>
+  .counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .counter span {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .counter button {
+    background-color: goldenrod;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .counter button:hover {
+    background-color: rgb(0, 238, 255);
+  }
+
+  .counter button:active {
+    transform: scale(0.9);
+  }
+
+  .counter button:focus {
+    outline: none;
+  }
+</style>

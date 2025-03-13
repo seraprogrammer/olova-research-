@@ -1,0 +1,9 @@
+<script>
+  let label = "Click Me";
+
+  function handleClick() {
+    label = "Clicked!";
+  }
+</script>
+
+<button onclick="handleClick" class="fancy-button">{ label }</button>
